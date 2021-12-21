@@ -7,7 +7,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
-requirements = ['boto3', 'botocore', 'Pillow==8.3.2', 'PyPDF2==1.26.0', 'docbarcodes==']
+requirements = ['boto3', 'botocore', 'Pillow==8.3.2', 'PyPDF2==1.26.0', 'docbarcodes==1.0.7']
 
 if sys.argv[-1] == 'publish-test':
     os.system(f"cd {os.path.dirname(__file__)}")
@@ -30,23 +30,23 @@ if sys.argv[-1] == 'publish':
     sys.exit()
 
 setup(
-    name='amazon-textract-pipeline-pagedimensions',
+    name='amazon-textract-pipeline-barcodes',
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
     exclude_package_data={"": ["test_*.py", "__pycache__"]},
     version='0.0.2',
     description=
-    'Amazon Textract Pipeline Component to add page dimensions to page block types',
+    'Amazon Textract Pipeline Component to extract and add barcode key-value pairs to page block types',
     install_requires=requirements,
-    scripts=['bin/amazon-textract-pipeline-pagedimensions'],
+    scripts=['bin/amazon-textract-pipeline-barcodes'],
     long_description_content_type='text/markdown',
     long_description=read('README.md'),
     author='Amazon Rekognition Textract Demoes',
     author_email='rekognition-textract-demos@amazon.com',
     url=
-    'https://github.com/aws-samples/amazon-textract-textractor/tree/master/tpipelinepagedimensions',
+    'https://github.com/aws-samples/amazon-textract-textractor/tree/master/tbarcodes',
     keywords=
-    'amazon-textract-textractor amazon textract textractor pipeline page dimensions',
+    'amazon-textract-textractor amazon textract textractor pipeline barcodes',
     license="Apache License Version 2.0",
     classifiers=[
         "Development Status :: 4 - Beta",
